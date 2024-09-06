@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Contato - Di Napoli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../../static/css/contato.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ReactToastify/9.0.7/ReactToastify.min.css"
+    />
+  </head>
+  <body>
+    <section class="formEmail">
+    <div class="container" id="contact">
+      <h1>Contact</h1>
+      <form id="contact-form">
+        <input type="text" id="name" placeholder="Digite seu nome" />
+        <input type="email" id="email" placeholder="Digite seu email" />
+        <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+        <button type="submit" id="submit-btn">Enviar</button>
+      </form>
+      <div id="toast-container"></div>
+    </div>
+</section>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      if (typeof emailjs !== "undefined") {
+        console.log("EmailJS carregado com sucesso!");
+      } else {
+        console.log("Falha ao carregar o EmailJS.");
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ReactToastify/9.0.7/ReactToastify.min.js"></script>
+    <script src="../../static/js/contato.js"></script>
+  </body>
+</html>
