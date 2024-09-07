@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from produtos.models import Produto, Variacao
+from produtos.models import ProdutoCatalogo, Variacao
 
 class Pedido(models.Model):
     STATUS_PEDIDO_CHOICES = [
@@ -18,9 +18,9 @@ class Pedido(models.Model):
     def __str__(self):
         return f'Pedido {self.id} - {self.cliente.username}'
 
-class ItemPedido(models.Model):
+class ItemPedidoModel(models.Model):
     pedido = models.ForeignKey(Pedido, related_name='itens', on_delete=models.CASCADE)
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name='pedidos_itempedido')
+    produto = models.ForeignKey(ProdutoCatalogo, on_delete=models.CASCADE, related_name='pedidos_itempedido')
     variacao = models.ForeignKey(Variacao, on_delete=models.SET_NULL, null=True, blank=True)
     quantidade = models.PositiveIntegerField(default=1)
     preco = models.DecimalField(max_digits=6, decimal_places=2)

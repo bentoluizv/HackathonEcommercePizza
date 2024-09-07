@@ -16,7 +16,12 @@ INTEGWHATSAP: implementar o envio de pedidos e notificações c/whatsap
 MAIN: gerenciar funcionalidades gerais 
 
   
-
+models.py de ambos os aplicativos (pedidos e produtos).
+admin.py de ambos os aplicativos.
+views.py de ambos os aplicativos.
+urls.py de ambos os aplicativos.
+settings.py (se necessário).
+Comece compartilhando os arquivos de 
 
 
 

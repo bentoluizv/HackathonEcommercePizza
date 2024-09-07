@@ -3,3 +3,4 @@ hackenv
 __pycache__
 ruff.toml
 database.db
+*.pyc 
