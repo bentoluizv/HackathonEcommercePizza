@@ -1,5 +1,5 @@
 from django import forms
-from .models import Pedido, ItemPedido
+from .models import Pedido, ItemPedidoModel  
 
 
 
@@ -10,5 +10,5 @@ class PedidoForm(forms.ModelForm):
 
 class ItemPedidoForm(forms.ModelForm):
     class Meta:
-        model = ItemPedido
-        fields = ['pedido', 'produto', 'quantidade', 'preco', 'variacao']   
+        model = ItemPedidoModel
+        fields = ['produto', 'quantidade', 'preco', 'variacao']   

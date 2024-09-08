@@ -12,5 +12,17 @@
         {{ item_form.as_p }}
         <button type="submit">Salvar Pedido</button>
     </form>
+    {% if pedido_form.errors %}
+        <ul>
+            {% for field in pedido_form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in pedido_form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </body>
 </html>

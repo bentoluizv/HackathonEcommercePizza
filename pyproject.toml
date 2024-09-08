@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pizzaria"
+version = "0.1.0"
+description = "Description []: E-commerce para pizzaria com sistema de pedidos e catálogo de produtos"
+authors = ["gentil <gentilrn.65@hotmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+Django = "5.1.1"
+asgiref = "3.8.1"
+gunicorn = "23.0.0"
+packaging = "24.1"
+pillow = "10.4.0"
+sqlparse = "0.5.1"
+typing-extensions = "4.12.2"
+whitenoise = "6.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

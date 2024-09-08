@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista do Carrinho</title>
+</head>
+<body>
+    <h1>Lista do Carrinho</h1>
+
+    <ul>
+        {% for item in itens %}
+            <li>{{ item.quantidade }}x {{ item.produto.nome }} - R${{ item.get_total }}</li>
+            <form action="{% url 'remover_carrinho' item.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Remover</button>
+            </form>
+        {% empty %}
+            <li>Nenhum item no carrinho.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'continuar_comprando' %}">Continuar Comprando</a>
+    <a href="{% url 'finalizar_pedido' %}">Finalizar Pedido</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Carrinho</title>
+</head>
+<body>
+    <h1>Meu Carrinho</h1>
+    <ul>
+        {% for item in carrinho %}
+            <li>
+                {{ item.produto.nome }} - R${{ item.preco }} x 
+                <form method="post" action="{% url 'atualizar_carrinho' item.produto.id %}">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="{{ item.quantidade }}" min="1">
+                    <button type="submit">Atualizar</button>
+                </form>
+                <form method="post" action="{% url 'remover_carrinho' item.produto.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Remover</button>
+                </form>
+                <span>Quantidade: {{ item.quantidade }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Total: R${{ total_carrinho }}</h2>
+
+    <form method="post" action="{% url 'finalizar_compra' %}">
+        {% csrf_token %}
+        <button type="submit">Finalizar Compra</button>
+    </form>
+
+    <a href="{% url 'produtos:render_index' %}">Continuar Comprando</a>
+</body>
+</html>

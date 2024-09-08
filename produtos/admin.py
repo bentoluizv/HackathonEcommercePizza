@@ -1,16 +1,15 @@
 from django.contrib import admin
-from produtos.models import Bebida, Pizza, Pedido, ItemPedido
+from produtos.models import Bebida, Pizza, Pedido, ProdutoCatalogo, Variacao, ItemPedidoModel
  
 
 
-
-# Register your models here.
+ 
 admin.site.register(Pizza)
 admin.site.register(Bebida)
 
 
 class ItemPedidoInline(admin.TabularInline):
-    model = ItemPedido
+    model = ItemPedidoModel
     extra = 1
     
 @admin.register(Pedido)

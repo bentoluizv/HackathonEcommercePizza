@@ -3,7 +3,7 @@ from django.db import models
 
 class Pizza(models.Model):
     PizzaType = models.TextChoices('PizzaType', 'DOCE SALGADA')
-    category = models.CharField(choices=PizzaType, max_length=10)  # type: ignore
+    category = models.CharField(choices=PizzaType.choices, max_length=10)  
     name = models.CharField(max_length=20)
     price = models.FloatField()
     description = models.TextField(default='')
@@ -23,13 +23,15 @@ class ProdutoCatalogo(models.Model):
     nome = models.CharField(max_length=255)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
 
+    def __str__(self):
+        return self.nome 
 
 class Pedido(models.Model):
     cliente = models.CharField(max_length=255)
     data_criacao = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50)  # Verifique se este campo existe
     total = models.DecimalField(max_digits=10, decimal_places=2)
-class ItemPedido(models.Model):
+class ItemPedidoModel(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     produto = models.ForeignKey(ProdutoCatalogo, on_delete=models.CASCADE, related_name='produtos_itempedido')
     quantidade = models.PositiveIntegerField()
