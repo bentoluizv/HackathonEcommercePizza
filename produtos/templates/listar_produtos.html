@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                {{ produto.nome }} - R${{ produto.preco }}
+                <a href="{% url 'adicionar_carrinho' produto.id %}">Adicionar ao Carrinho</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'visualizar_carrinho' %}">Ver Carrinho</a>
+</body>
+</html>

@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from .models import Bebida, Pizza, ProdutoCatalogo
 
-from .models import Bebida, Pizza
 
+
+def listar_produtos(request):
+    produtos = ProdutoCatalogo.objects.all()
+    return render(request, 'listar_produtos.html', {'produtos': produtos})
 
 def render_index(request):
     pizzas = Pizza.objects.all()
