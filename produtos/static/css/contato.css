@@ -1,66 +1,75 @@
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 body {
     background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    font-family: Piazzolla;
-    padding-bottom: 16px;
+    margin: 0;
+    height: 100vh;
+
+    font-family: "Piazzolla";
 }
 
-h2 {
-    color: white;
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+
+.formEmail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
 
 .container {
-    max-width: 1024px;
-    width: 90%;
-    padding: 16px;
-    margin: 0 auto 87px;
-    background-color: #d9d9d9;
-    opacity: 50%;
-    border-radius: 10px;
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
-.container>p {
-    margin-top: 1rem;
-}
-
-.container>strong {
+h1 {
     text-align: center;
-    display: block;
-    margin-top: 8px;
+    color: #333;
 }
 
-h3 {
-    text-align: center;
-    margin-bottom: 16px;
+form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.info-contato {
-    margin-top: 16px;
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.info-contato ul li {
-    margin-left: 32px;
+button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.btn-voltar {
-    margin: 0px calc(50% - 64px);
-    padding: 4px 64px;
-    border-radius: 10px;
-    background-color: #d9d9d9;
-    opacity: 80%;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
+button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
 }
 
-
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
